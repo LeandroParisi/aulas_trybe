@@ -1,4 +1,4 @@
-let number = 3;
+let number = 5;
 let ast = "*";
 let espaco = " ";
 let posicaoAtual = number;
