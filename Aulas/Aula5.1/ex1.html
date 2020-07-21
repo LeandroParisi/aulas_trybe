@@ -67,17 +67,18 @@
         changeHeading();
 
         function changePSize() {
-            for (index in document.getElementsByTagName("p")){
-                document.getElementsByTagName("p")[index].style.textTransform = "uppercase";
+          let pTagArray = document.getElementsByTagName("p");
+            for (index = 0; pTagArray.length; index += 1){
+                pTagArray[index].style.textTransform = "uppercase";
             }
         }
         changePSize();
 
         function consoleLogP () {
-            for (index in document.getElementsByTagName("p")){
-                console.log (
-                document.getElementsByTagName("p")[index].innerText)
-            }
+          let pTagArray = document.getElementsByTagName("p");
+          for (index = 0; index <= pTagArray.length; index += 1){
+              console.log (pTagArray[index].innerText)
+          }
         }
         consoleLogP();
 
