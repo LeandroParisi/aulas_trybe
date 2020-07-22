@@ -39,13 +39,6 @@
       </div>
     </div>
     <script>
-        /*
-        Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
-        - document.getElementById()
-        - document.getElementsByClassName()
-        - document.getElementsByTagName()
-        6. Crie uma função que exiba o conteúdo de todas as tags <p> no console.
-        */
         function changeText() {
             document.getElementsByTagName("p")[0].innerText = "Viajando o Brasil!"
         }
@@ -68,15 +61,16 @@
 
         function changePSize() {
           let pTagArray = document.getElementsByTagName("p");
-            for (index = 0; pTagArray.length; index += 1){
-                pTagArray[index].style.textTransform = "uppercase";
+            for (index = 0; index < pTagArray.length; index += 1){
+              console.log(pTagArray[index]);  
+              pTagArray[index].style.textTransform = "uppercase";
             }
         }
         changePSize();
 
         function consoleLogP () {
           let pTagArray = document.getElementsByTagName("p");
-          for (index = 0; index <= pTagArray.length; index += 1){
+          for (index = 0; index < pTagArray.length; index += 1){
               console.log (pTagArray[index].innerText)
           }
         }
