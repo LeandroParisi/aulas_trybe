@@ -105,11 +105,37 @@
         }
 
     // Adicione 3 tags h3, todas sendo filhas do div criado no passo 2.
+        // Adicione a classe description nas 3 tags h3 criadas;
+
         for (index = 0; index <=2; index += 1){
-            document.querySelector("div.main-content").appendChild(document.createElement("h3"));
+            createH3 = document.createElement("h3");
+            createH3.className = "description"
+            document.querySelector("div.main-content").appendChild(createH3);
         }
 
+    // Adicione a classe title na tag h1 criada;
+        createH1.className = "title";
 
+
+    // Remova o div criado no passo 5 (aquele que possui a classe left-content). Utilize a função .removeChild();
+        let childDiv = document.querySelector("div.left-content")
+        document.body.querySelector("div.main-content").removeChild(childDiv);
+
+    // Centralize o div criado no passo 6 (aquele que possui a classe right-content). Dica: para centralizar, basta configurar o margin-right: auto do div;
+        document.querySelector("div.right-content").style.marginRight = "auto";
+
+    // Troque a cor de fundo do elemento pai da div criada no passo 3 (aquela que possui a classe center-content) para a cor verde;
+        document.querySelector("div.center-content").parentElement.style.backgroundColor = "green";
+
+    // Remova os dois últimos elementos (nove e dez) da lista criada no passo 8.
+        document.querySelector("ul").querySelectorAll("li")[0].innerHTML = "r4534";
+        
+        for (index = 1; index <= 2; index += 1){
+            let liLength = document.querySelectorAll("li").length;
+            let liToBeRemoved = document.querySelectorAll("li")[liLength - 1];
+            document.querySelector("ul").removeChild(liToBeRemoved)
+        }
+    
     </script>
   </body>
 </html>
