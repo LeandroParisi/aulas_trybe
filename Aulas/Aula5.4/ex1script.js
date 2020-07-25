@@ -12,11 +12,6 @@
 // }
 // document.body.style.backgroundColor = localStorage.getItem("bgColor");
 
-
-
-
-
-
 let body = document.querySelector("body");
 let headingColor = document.querySelector("h1")
 let paragraphs = document.querySelectorAll("p");
