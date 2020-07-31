@@ -23,6 +23,13 @@
 
 // redBtn.addEventListener("click", setBackground2);
 
-function targetTest (){
-    console.log(document.querySelector(".backgroundColor").)
-}
+let bgColorSelect = document.querySelector(".background-color");
+
+bgColorSelect.addEventListener("click", function(event){
+    console.log(event.target);
+    let body = document.querySelector("body");
+
+    let className = event.target.className;
+
+    body.style.backgroundColor = className;
+});
