@@ -1,0 +1,19 @@
+body{
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.form-group, .row{
+    margin-top: 20px;
+}
+
+#submit{
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+}
