@@ -2,9 +2,10 @@
 // inputValidation();
 submitOutput();
 createStateList();
-uncheckRadioButton();
 dateCharsRestriction();
 
+// document.querySelector('input[name="rate"]:checked') 
+// https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript 
 
 function submitOutput(){
     let submitButton = document.querySelector("#submit");
@@ -15,6 +16,19 @@ function submitOutput(){
         let outputTitles = [];
         let outputDiv = document.createElement("div");
         outputDiv.classList.add("output-div")
+
+        // let radioArray = document.getElementsByName("house-type");
+        // for (index in radioArray){
+        //     if (radioArray[index].checked == true){
+        //         console.log(radioArray[index]);
+        //     }
+        // }
+
+        let radioButton = document.querySelector('input[name="house-type"]:checked');
+        console.log(radioButton.value);
+
+        let selectedButtonIndex = document.querySelector("select");
+        console.log(selectedButtonIndex.selectedIndex);
 
         
         let formInputs = document.querySelectorAll("input");
@@ -38,11 +52,11 @@ function submitOutput(){
         formBody.appendChild(outputDiv);
 
         // testes
-        console.log(formLabels);
-        console.log(outputTitles);
-        console.log(formInputs);
-        console.log(outputTexts);
-        console.log(outputDiv);
+        // console.log(formLabels);
+        // console.log(outputTitles);
+        // console.log(formInputs);
+        // console.log(outputTexts);
+        // console.log(outputDiv);
     })
 
 }
@@ -62,20 +76,6 @@ function createStateList(){
         input.value=stateArray[index];
         input.innerText=stateArray[index];
         stateInputDiv.appendChild(input);
-    }
-}
-
-// is it the best way to do it?
-function uncheckRadioButton(event){
-    let radioButtons = document.querySelectorAll('.radio-button');
-    for (let index = 0; index < radioButtons.length; index += 1){
-        radioButtons[index].addEventListener("click", function(event){
-            for (let innerIndex = 0; innerIndex < radioButtons.length; innerIndex += 1){
-                radioButtons[innerIndex].checked = false;
-            }
-            event.target.checked = true;
-
-        }) 
     }
 }
 

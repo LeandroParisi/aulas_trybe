@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.1</title>
+
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
+    <div class="main-content">
+      <div class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>-----</p>
+        <p>Trybe</p>
+      </div>
+    </div>
+    <script>
+        function changeText() {
+            document.getElementsByTagName("p")[0].innerText = "Viajando o Brasil!"
+        }
+        changeText();
+
+        function changeBgToGreen() {
+            document.getElementsByClassName("main-content")[0].style.backgroundColor = "green"
+        }
+        changeBgToGreen();
+
+        function changeBgToWhite() {
+            document.getElementsByClassName("center-content")[0].style.backgroundColor = "white"
+        }
+        changeBgToWhite();
+
+        function changeHeading() {
+            document.getElementsByTagName("h1")[0].innerText = "Ex.5 - JavaScript"
+        }
+        changeHeading();
+
+        function changePSize() {
+          let pTagArray = document.getElementsByTagName("p");
+            for (index = 0; index < pTagArray.length; index += 1){
+              console.log(pTagArray[index]);  
+              pTagArray[index].style.textTransform = "uppercase";
+            }
+        }
+        changePSize();
+
+        function consoleLogP () {
+          let pTagArray = document.getElementsByTagName("p");
+          for (index = 0; index < pTagArray.length; index += 1){
+              console.log (pTagArray[index].innerText)
+          }
+        }
+        consoleLogP();
+
+
+
+    </script>
+  </body>
+</html>
