@@ -64,6 +64,8 @@ console.log("-------------");
 // 5) Crie um objeto de nome allLessons, que deve agrupar todas as aulas através do Object.assign. Cada chave desse novo objeto será uma aula, sendo essas chaves: lesson1, lesson2 e lesson3. Ao executar o comando console.log(allLessons), a saída deverá ser a seguinte:
 
 const allLessons = {
+  // `lesson[index]`
+  // [index, index < Array.length]
   lesson1: Object.assign({}, lesson1),
   lesson2: Object.assign({}, lesson2),
   lesson3: Object.assign({}, lesson3)
@@ -133,3 +135,19 @@ mathAttendes();
 console.log("-------------");
 
 // Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5:
+function teacherRelatory (professorName) {
+  const objectValues = Object.values(allLessons);
+  let relatoryOutput = {
+    professor: professorName,
+    totalStudentsOnClasses: 0,
+    classesTaught: [],
+  };
+  for (index in objectValues) {
+    if (objectValues[index].professor == professorName){
+      relatoryOutput.totalStudentsOnClasses += objectValues[index].numeroEstudantes;
+      relatoryOutput.classesTaught.push(objectValues[index].materia);
+    }
+  }
+  console.log(relatoryOutput);
+}
+teacherRelatory('Maria Clara');
