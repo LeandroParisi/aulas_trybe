@@ -1,0 +1,20 @@
+{
+  "name": "aulas_trybe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "teste.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeandroParisi/aulas_trybe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeandroParisi/aulas_trybe/issues"
+  },
+  "homepage": "https://github.com/LeandroParisi/aulas_trybe#readme"
+}
