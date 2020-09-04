@@ -30,13 +30,25 @@ const Animals = [
   { name: 'Preguiça', age: 5, type: 'Cat' },
 ];
 
+
+
 const findAnimalByName = (name) => (
-  // Adicione o código aqui.
+  new Promise ((resolve, reject) => {
+    setTimeout(() => {
+      const animalObject = Animals.find(animal => animal.name === name);
+      if (animalObject !== undefined) {
+        return resolve(animalObject)
+      } else {
+        return reject('Error: Não possui animal com este nome')
+      }
+    }, 100)
+  })
 )
 
 const getAnimal = (name) => {
-  // Adicione o código aqui.
+  return findAnimalByName(name).then(animal => animal)
 }
+
 // ---------------------
 
 describe('Testando promise - findAnimalByName', () => {
@@ -53,8 +65,10 @@ describe('Testando promise - findAnimalByName', () => {
     test('Retorna um erro', () => {
       expect.assertions(1);
       return getAnimal('Bob').catch(error =>
-        expect(error).toEqual('Nenhum animal com esse nome!')
+        expect(error).toEqual('Error: Não possui animal com este nome')
       );
     });
   });
 });
+
+// DOUBLE RETURN: getAnimal retorna o then do promisse / return no describe retorna o que?
