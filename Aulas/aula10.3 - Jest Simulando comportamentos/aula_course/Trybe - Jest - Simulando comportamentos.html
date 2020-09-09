@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trybe - Jest - Simulando comportamentos</title>
+    <link rel="stylesheet" href="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/bootstrap-toc.css">
+    <link rel="icon" href="https://course.betrybe.com/favicon.png">
+    <link rel="stylesheet" href="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/app-50add7e67e64722631047d758d3dbf65.css">
+    <script type="text/javascript" async="" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/linkid.js"></script><script type="text/javascript" async="" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/analytics_002.js"></script><script type="text/javascript" id="www-widgetapi-script" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/www-widgetapi.js" async=""></script><script type="text/javascript" async="" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/analytics.js"></script><script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/iframe_api.js"></script><script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/jquery-3.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/popper.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/bootstrap.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/bootstrap-toc.js"></script>
+    <script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/ded57e9e0c.js" crossorigin="anonymous"></script><link href="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/free-v4-shims.css" media="all" rel="stylesheet" id="font-awesome-5-kit-css"><link href="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/free-v4-font-face.css" media="all" rel="stylesheet" id="font-awesome-5-kit-css"><link href="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/free.css" media="all" rel="stylesheet" id="font-awesome-5-kit-css">
+
+    <script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/player.js"></script>
+    <script charset="utf-8">
+      (function () {
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      })();
+    </script>
+  <script async="" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/hotjar-1497837.js"></script><script async="" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/modules.js" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><script src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/survey-v2.js"></script><style>._hj-mMo1P__styles__resetStyles * {
+  line-height: normal;
+  font-family: Arial, sans-serif, Tahoma !important;
+  text-transform: initial !important;
+  letter-spacing: normal !important; }
+
+._hj-mMo1P__styles__resetStyles *::before,
+._hj-mMo1P__styles__resetStyles *::after {
+  box-sizing: initial; }
+
+._hj-mMo1P__styles__resetStyles div {
+  height: auto; }
+
+._hj-mMo1P__styles__resetStyles div,
+._hj-mMo1P__styles__resetStyles span,
+._hj-mMo1P__styles__resetStyles p,
+._hj-mMo1P__styles__resetStyles a,
+._hj-mMo1P__styles__resetStyles button {
+  font-weight: normal !important; }
+
+._hj-mMo1P__styles__resetStyles div,
+._hj-mMo1P__styles__resetStyles span,
+._hj-mMo1P__styles__resetStyles p,
+._hj-mMo1P__styles__resetStyles a,
+._hj-mMo1P__styles__resetStyles img,
+._hj-mMo1P__styles__resetStyles strong,
+._hj-mMo1P__styles__resetStyles form,
+._hj-mMo1P__styles__resetStyles label {
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  float: none !important; }
+
+._hj-mMo1P__styles__resetStyles span {
+  color: inherit; }
+
+._hj-mMo1P__styles__resetStyles ol,
+._hj-mMo1P__styles__resetStyles ul,
+._hj-mMo1P__styles__resetStyles li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important; }
+
+._hj-mMo1P__styles__resetStyles li:before,
+._hj-mMo1P__styles__resetStyles li:after {
+  content: none !important; }
+
+._hj-mMo1P__styles__resetStyles hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+._hj-mMo1P__styles__resetStyles input[type='submit'],
+._hj-mMo1P__styles__resetStyles input[type='button'],
+._hj-mMo1P__styles__resetStyles button {
+  margin: 0;
+  padding: 0;
+  float: none !important; }
+
+._hj-mMo1P__styles__resetStyles input,
+._hj-mMo1P__styles__resetStyles select,
+._hj-mMo1P__styles__resetStyles a img {
+  vertical-align: middle; }
+
+._hj-10MNR__styles__globalStyles *,
+._hj-10MNR__styles__globalStyles *::before,
+._hj-10MNR__styles__globalStyles *::after {
+  box-sizing: border-box; }
+
+@font-face {
+  font-family: 'hotjar';
+  src: url(https://script.hotjar.com/font-hotjar_5.fdcf0e.eot);
+  src: url(https://script.hotjar.com/font-hotjar_5.fdcf0e.eot#iefix) format("embedded-opentype"), url(https://script.hotjar.com/font-hotjar_5.c9fb91.woff2) format("woff2"), url(https://script.hotjar.com/font-hotjar_5.8598c5.ttf) format("truetype"), url(https://script.hotjar.com/font-hotjar_5.6da396.woff) format("woff"), url(https://script.hotjar.com/font-hotjar_5.a6049d.svg#hotjar) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@keyframes _hj-CvZ6d__styles__spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes _hj-19ojv__styles__colors {
+  0% {
+    border-color: #f4364c;
+    border-top-color: transparent; }
+  25% {
+    border-color: #00a2f2;
+    border-top-color: transparent; }
+  50% {
+    border-color: #efb60c;
+    border-top-color: transparent; }
+  75% {
+    border-color: #42ca49;
+    border-top-color: transparent; }
+  100% {
+    border-color: #f4364c;
+    border-top-color: transparent; } }
+
+._hj-10MNR__styles__globalStyles p {
+  color: inherit !important; }
+
+._hj-10MNR__styles__globalStyles a,
+._hj-10MNR__styles__globalStyles a:link,
+._hj-10MNR__styles__globalStyles a:hover,
+._hj-10MNR__styles__globalStyles a:active {
+  color: inherit !important;
+  text-decoration: underline; }
+
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon {
+  speak: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: nowrap !important;
+  line-height: normal !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  vertical-align: middle !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon:before,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon:after,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon *,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon *:before,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon *:after {
+  font-family: 'hotjar' !important;
+  display: inline-block !important;
+  direction: ltr !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon:before {
+  color: inherit !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-WPdPO__styles__iconX:before {
+  content: '\E803'; }
+
+._hj-10MNR__styles__globalStyles ._hj-2WW4P__styles__iconOk:before {
+  content: '\E804'; }
+
+._hj-10MNR__styles__globalStyles ._hj-34EZP__styles__iconError:before {
+  content: '\E90C'; }
+
+._hj-10MNR__styles__globalStyles ._hj-lAAAw__styles__iconLogo:before {
+  content: '\E806'; }
+
+._hj-10MNR__styles__globalStyles ._hj-FxxIA__styles__surveyIcons {
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block !important;
+  zoom: 1;
+  vertical-align: middle; }
+
+._hj-widget-theme-light ._hj-10MNR__styles__globalStyles ._hj-FxxIA__styles__surveyIcons {
+  background-image: url(https://script.hotjar.com/widget_icons_light.ddcd59.png); }
+
+._hj-widget-theme-dark ._hj-10MNR__styles__globalStyles ._hj-FxxIA__styles__surveyIcons {
+  background-image: url(https://script.hotjar.com/widget_icons_dark.3a8118.png); }
+
+._hj-10MNR__styles__globalStyles ._hj-1oY0c__styles__inputField {
+  font-family: Arial, sans-serif, Tahoma;
+  font-size: 14px;
+  color: #333 !important;
+  padding: 6px !important;
+  text-indent: 0 !important;
+  height: 30px;
+  width: 100%;
+  min-width: 100%;
+  background: white;
+  border: 1px solid !important;
+  outline: none !important;
+  max-width: none !important;
+  float: none;
+  border-radius: 3px; }
+
+._hj-10MNR__styles__globalStyles ._hj-2xXAa__styles__textarea {
+  resize: none;
+  height: 100px; }
+
+._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton {
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 10px;
+  border: 0;
+  outline: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  zoom: 1;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  color: white; }
+  ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton:hover, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:hover, ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton:focus, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:focus, ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton:active, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:active {
+    background: #00a251; }
+  ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton[disabled], ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton[disabled] {
+    cursor: default; }
+
+._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton {
+  font-size: 13px !important;
+  font-weight: bold !important;
+  padding: 7px 10px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  min-height: initial !important;
+  width: auto !important;
+  min-width: initial !important;
+  background: #00c764 !important; }
+  ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:hover, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:focus, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:active {
+    background: #00a251 !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 13px !important;
+  padding: 7px 10px !important;
+  border: 0 !important; }
+  ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton, ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton:hover, ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton:focus, ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton:active {
+    background: transparent !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-29HmU__styles__answersContentWrapper {
+  padding: 0 12px 12px 12px; }
+
+._hj-10MNR__styles__globalStyles ._hj-1KgX2__styles__spinner {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-top-color: transparent !important;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  animation: _hj-CvZ6d__styles__spin 0.4s linear infinite, _hj-19ojv__styles__colors 5.6s ease-in-out infinite; }
+
+._hj-2xXAa__styles__textarea { }
+
+._hj-WPdPO__styles__iconX,
+._hj-2WW4P__styles__iconOk,
+._hj-34EZP__styles__iconError,
+._hj-lAAAw__styles__iconLogo { }
+
+._hj-3v_Mp__styles__rtl,
+._hj-3v_Mp__styles__rtl * {
+  direction: rtl !important; }
+</style><style>._hj-widget-container ._hj-Ctqsu__styles__closeEndedOption {
+  position: relative;
+  min-height: 45px;
+  text-align: left !important;
+  height: auto !important;
+  border-bottom: 1px solid !important;
+  border-top: 1px solid !important;
+  cursor: pointer !important;
+  display: block; }
+  ._hj-widget-container ._hj-Ctqsu__styles__closeEndedOption:last-child {
+    border-bottom: 0 !important; }
+  ._hj-widget-container ._hj-Ctqsu__styles__closeEndedOption._hj-1GXnn__styles__selected {
+    color: white !important; }
+    ._hj-widget-container ._hj-Ctqsu__styles__closeEndedOption._hj-1GXnn__styles__selected ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+      border-color: white;
+      background-position: -97px 4px; }
+
+._hj-widget-container ._hj-TM8NB__styles__closeEndedOptionInput {
+  position: absolute;
+  opacity: 0; }
+  ._hj-widget-container ._hj-TM8NB__styles__closeEndedOptionInput:focus + ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+    border-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.15); }
+
+._hj-widget-container ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+  border: 2px solid #aaa;
+  width: 22px;
+  height: 22px;
+  display: block;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  margin-top: -14px;
+  background-position: -64px -100px;
+  box-sizing: content-box; }
+  ._hj-widget-container ._hj-Lx6qQ__styles__closeEndedOptionIcon._hj-22c6F__styles__radio {
+    border-radius: 30px; }
+  ._hj-widget-container ._hj-Lx6qQ__styles__closeEndedOptionIcon._hj-xYL-P__styles__checkbox {
+    border-radius: 4px; }
+
+._hj-widget-container ._hj-2xRT0__styles__iconShape {
+  width: 16px;
+  height: 16px;
+  margin: 3px;
+  fill: white; }
+
+._hj-widget-container ._hj-JWpOV__styles__closeEndedOptionText {
+  text-align: left !important;
+  padding: 14px 20px 14px 50px;
+  position: relative;
+  display: block;
+  word-break: break-word;
+  word-wrap: break-word;
+  color: inherit !important; }
+
+._hj-widget-container ._hj-Ctqsu__styles__closeEndedOption._hj-1UJ_v__styles__withComment ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+  top: 14px !important;
+  margin-top: 0 !important; }
+
+._hj-widget-container ._hj-Ctqsu__styles__closeEndedOption._hj-1UJ_v__styles__withComment ._hj-JWpOV__styles__closeEndedOptionText {
+  padding-bottom: 10px !important; }
+
+._hj-widget-container ._hj-ZO0bi__styles__closeEndedOptionCommentBox {
+  margin: 0 20px 0 50px; }
+
+._hj-widget-container ._hj-1AC4Y__styles__closeEndedOptionTextarea {
+  font-size: 13px !important;
+  height: 50px !important;
+  max-height: 50px !important;
+  min-height: auto !important;
+  margin-bottom: 8px !important;
+  border: 0 !important; }
+
+._hj-widget-container ._hj-3WSfd__styles__embedded._hj-Ctqsu__styles__closeEndedOption {
+  border-bottom: 0 none !important;
+  border-top: 0 none !important; }
+  ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-Ctqsu__styles__closeEndedOption:hover ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+    border-color: #666666; }
+  ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-Ctqsu__styles__closeEndedOption._hj-1GXnn__styles__selected {
+    color: inherit !important; }
+    ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-Ctqsu__styles__closeEndedOption._hj-1GXnn__styles__selected ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+      border-color: #00c764;
+      background: #00c764 !important; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-Ctqsu__styles__closeEndedOption:last-child {
+      margin-bottom: 32px; } }
+  ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-Ctqsu__styles__closeEndedOption._hj-1UJ_v__styles__withComment ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+    margin-top: -3px !important; }
+
+._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+  margin-top: -12 px;
+  border-color: #999999;
+  border-width: 1px; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+      left: 42px; } }
+
+._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-TM8NB__styles__closeEndedOptionInput:focus + ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+  border-color: #00c764;
+  background-color: rgba(255, 255, 255, 0.15); }
+
+._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-JWpOV__styles__closeEndedOptionText {
+  font-size: 14px; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-JWpOV__styles__closeEndedOptionText {
+      padding: 14px 42px 14px 80px;
+      font-size: 16px; } }
+
+._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-ZO0bi__styles__closeEndedOptionCommentBox {
+  border: 1px solid rgba(151, 151, 151, 0.4); }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3WSfd__styles__embedded ._hj-ZO0bi__styles__closeEndedOptionCommentBox {
+      margin: 0 42px 0 80px; } }
+
+@media screen and (min-width: 440px) {
+  ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-2mp-V__styles__closeEndedOptionRtl ._hj-JWpOV__styles__closeEndedOptionText {
+    padding: 14px 80px 14px 42px; }
+  ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-2mp-V__styles__closeEndedOptionRtl ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+    right: 42px; }
+  ._hj-widget-container ._hj-3WSfd__styles__embedded._hj-2mp-V__styles__closeEndedOptionRtl ._hj-ZO0bi__styles__closeEndedOptionCommentBox {
+    margin: 0 80px 0 42px !important; } }
+
+._hj-Lx6qQ__styles__closeEndedOptionIcon { }
+
+._hj-1AC4Y__styles__closeEndedOptionTextarea { }
+
+._hj-2mp-V__styles__closeEndedOptionRtl {
+  text-align: right !important; }
+  ._hj-2mp-V__styles__closeEndedOptionRtl ._hj-JWpOV__styles__closeEndedOptionText {
+    text-align: right !important;
+    padding: 14px 50px 14px 20px; }
+  ._hj-2mp-V__styles__closeEndedOptionRtl ._hj-Lx6qQ__styles__closeEndedOptionIcon {
+    left: auto;
+    right: 12px; }
+  ._hj-2mp-V__styles__closeEndedOptionRtl ._hj-ZO0bi__styles__closeEndedOptionCommentBox {
+    margin: 0 50px 0 20px !important; }
+</style><style>._hj-widget-container ._hj-2tTA6__styles__shortContentWrapper {
+  max-height: 120px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+</style><style>@media screen and (min-width: 440px) {
+  ._hj-widget-container ._hj-2SI5G__styles__embedded {
+    padding: 0 42px 32px; } }
+</style><style>._hj-widget-container ._hj-3sBzS__styles__scaleAnswerWrapper,
+._hj-widget-container ._hj-3LKa5__styles__scaleAnswerWrapperRtl {
+  margin: 0 auto;
+  max-width: 300px; }
+
+._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList {
+  margin: 4px 0 0 0 !important;
+  height: 28px; }
+  ._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList._hj-3Akky__styles__ratingScale5 {
+    height: 38px; }
+  ._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList._hj-13YX4__styles__ratingScale7 {
+    height: 36px; }
+
+._hj-widget-container ._hj-gdJY7__styles__scaleOption {
+  list-style-type: none !important;
+  list-style-image: none !important;
+  float: left !important;
+  width: 22px !important;
+  padding: 4px 0 5px 0 !important;
+  margin: 0 3px 0 0 !important;
+  border-radius: 2px;
+  text-align: center !important;
+  opacity: 0.75 !important;
+  clear: none !important;
+  cursor: pointer;
+  text-indent: 0;
+  font-size: inherit;
+  border-left: none;
+  border-right: none; }
+  ._hj-widget-container ._hj-gdJY7__styles__scaleOption:last-child {
+    margin: 0 !important; }
+  ._hj-widget-container ._hj-gdJY7__styles__scaleOption:hover {
+    opacity: 1 !important; }
+  ._hj-widget-container ._hj-gdJY7__styles__scaleOption._hj-jKb_1__styles__selected {
+    cursor: default;
+    opacity: 1 !important; }
+
+._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList._hj-3Akky__styles__ratingScale5 ._hj-gdJY7__styles__scaleOption {
+  width: 48px !important;
+  font-size: 15px !important;
+  padding: 8px 0 9px 0 !important;
+  margin: 0 9px 0 0 !important; }
+  ._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList._hj-3Akky__styles__ratingScale5 ._hj-gdJY7__styles__scaleOption:last-child {
+    margin: 0 !important; }
+
+._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList._hj-13YX4__styles__ratingScale7 ._hj-gdJY7__styles__scaleOption {
+  width: 35px !important;
+  font-size: 15px !important;
+  padding: 6px 0 7px 0 !important;
+  margin: 0 5px 0 0 !important; }
+  ._hj-widget-container ._hj-kY5Os__styles__scaleOptionsList._hj-13YX4__styles__ratingScale7 ._hj-gdJY7__styles__scaleOption:last-child {
+    margin: 0 !important; }
+
+._hj-widget-container ._hj-3tf90__styles__scaleLabels {
+  padding-top: 5px;
+  font-size: 12px; }
+  ._hj-widget-container ._hj-3tf90__styles__scaleLabels::after {
+    content: '';
+    clear: both !important;
+    display: block !important; }
+  ._hj-widget-container ._hj-3tf90__styles__scaleLabels ._hj-2qaz5__styles__scaleLabel {
+    max-width: 45%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    ._hj-widget-container ._hj-3tf90__styles__scaleLabels ._hj-2qaz5__styles__scaleLabel:first-child {
+      float: left !important; }
+    ._hj-widget-container ._hj-3tf90__styles__scaleLabels ._hj-2qaz5__styles__scaleLabel:last-child {
+      float: right !important; }
+
+._hj-widget-container ._hj-3rxJX__styles__embedded._hj-3sBzS__styles__scaleAnswerWrapper, ._hj-widget-container ._hj-3rxJX__styles__embedded._hj-3LKa5__styles__scaleAnswerWrapperRtl {
+  padding-bottom: 28px;
+  max-width: none; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3rxJX__styles__embedded._hj-3sBzS__styles__scaleAnswerWrapper, ._hj-widget-container ._hj-3rxJX__styles__embedded._hj-3LKa5__styles__scaleAnswerWrapperRtl {
+      padding: 0 42px 32px; } }
+
+._hj-widget-container ._hj-3rxJX__styles__embedded ._hj-3tf90__styles__scaleLabels {
+  clear: both; }
+
+._hj-widget-container ._hj-3rxJX__styles__embedded ._hj-kY5Os__styles__scaleOptionsList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 53px; }
+
+._hj-widget-container ._hj-3rxJX__styles__embedded ._hj-kY5Os__styles__scaleOptionsList ._hj-gdJY7__styles__scaleOption {
+  width: auto !important;
+  height: 53px;
+  margin: 0 2px 0 0 !important;
+  flex: 1;
+  border-top-width: 1px;
+  border-bottom-width: 1px; }
+  ._hj-widget-container ._hj-3rxJX__styles__embedded ._hj-kY5Os__styles__scaleOptionsList ._hj-gdJY7__styles__scaleOption:last-child {
+    margin: 0 !important; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3rxJX__styles__embedded ._hj-kY5Os__styles__scaleOptionsList ._hj-gdJY7__styles__scaleOption {
+      margin: 0 5px 0 0 !important; } }
+
+._hj-3sBzS__styles__scaleAnswerWrapper { }
+
+._hj-3LKa5__styles__scaleAnswerWrapperRtl { }
+  ._hj-3LKa5__styles__scaleAnswerWrapperRtl ._hj-kY5Os__styles__scaleOptionsList ._hj-gdJY7__styles__scaleOption,
+  ._hj-3LKa5__styles__scaleAnswerWrapperRtl ._hj-kY5Os__styles__scaleOptionsList._hj-13YX4__styles__ratingScale7 ._hj-gdJY7__styles__scaleOption,
+  ._hj-3LKa5__styles__scaleAnswerWrapperRtl ._hj-kY5Os__styles__scaleOptionsList._hj-3Akky__styles__ratingScale5 ._hj-gdJY7__styles__scaleOption {
+    float: right !important;
+    margin: 0 0 0 3px !important;
+    border-radius: 2px;
+    text-align: center !important;
+    opacity: 0.75 !important;
+    cursor: pointer; }
+  ._hj-3LKa5__styles__scaleAnswerWrapperRtl ._hj-3tf90__styles__scaleLabels ._hj-2qaz5__styles__scaleLabel:first-child {
+    float: right !important; }
+  ._hj-3LKa5__styles__scaleAnswerWrapperRtl ._hj-3tf90__styles__scaleLabels ._hj-2qaz5__styles__scaleLabel:last-child {
+    float: left !important; }
+</style><style>._hj-widget-container ._hj-2gFBC__styles__surveyContainer,
+._hj-widget-container ._hj-2qaGY__styles__openStateToggle {
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3) !important;
+  /* theme based*/
+  z-index: 2147483640;
+  border-radius: 5px 5px 0 0; }
+
+._hj-widget-container ._hj-2gFBC__styles__surveyContainer {
+  position: fixed;
+  bottom: 0;
+  width: 300px;
+  font-size: 13px !important; }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-ygwVr__styles__positionRight {
+    right: 100px; }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-3POOT__styles__positionLeft {
+    left: 100px; }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-moqIm__styles__positionCenter {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%); }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-2SATB__styles__minimized {
+    transform: translateY(97%); }
+    ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-2SATB__styles__minimized ._hj-1ZR3F__styles__openStateToggleIcon {
+      background-position: 0 0; }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-2SATB__styles__minimized._hj-moqIm__styles__positionCenter {
+    transform: translate(-50%, 97%); }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-1BXlz__styles__closed {
+    display: none; }
+  ._hj-widget-container ._hj-2gFBC__styles__surveyContainer._hj-1pV3u__styles__openingAnimation {
+    animation: _hj-2gxQ2__styles__slide-to-top 300ms linear; }
+  @media print {
+    ._hj-widget-container ._hj-2gFBC__styles__surveyContainer {
+      display: none; } }
+
+@-webkit-keyframes _hj-2gxQ2__styles__slide-to-top {
+  0% {
+    bottom: -100%; }
+  100% {
+    bottom: 0; } }
+
+._hj-widget-container ._hj-2qaGY__styles__openStateToggle {
+  text-align: center;
+  position: absolute;
+  top: -18px;
+  right: 20px;
+  width: 40px;
+  height: 18px;
+  padding-top: 2px;
+  cursor: pointer;
+  border: none; }
+  ._hj-widget-container ._hj-2qaGY__styles__openStateToggle::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: -8px;
+    height: 8px;
+    background: inherit; }
+
+._hj-widget-container ._hj-1ZR3F__styles__openStateToggleIcon {
+  background-position: -32px 0; }
+
+._hj-widget-container ._hj-2497K__styles__collapsedReplyButton {
+  margin: 0 auto 12px auto;
+  display: block; }
+
+._hj-widget-container ._hj-XnEwP__styles__surveyTitle,
+._hj-widget-container ._hj-XnEwP__styles__surveyTitle > span {
+  font-weight: bold !important;
+  text-align: center;
+  padding: 12px;
+  margin: 0;
+  line-height: 17px !important;
+  min-height: 17px;
+  word-break: break-word;
+  word-wrap: break-word;
+  cursor: pointer; }
+  ._hj-widget-container ._hj-XnEwP__styles__surveyTitle._hj-1VIWK__styles__noBottomPadding,
+  ._hj-widget-container ._hj-XnEwP__styles__surveyTitle > span._hj-1VIWK__styles__noBottomPadding {
+    padding-bottom: 0; }
+
+._hj-widget-container._hj-widget-theme-light ._hj-XnEwP__styles__surveyTitle,
+._hj-widget-container._hj-widget-theme-light ._hj-XnEwP__styles__surveyTitle > span {
+  color: #111 !important; }
+
+._hj-widget-container._hj-widget-theme-dark ._hj-XnEwP__styles__surveyTitle,
+._hj-widget-container._hj-widget-theme-dark ._hj-XnEwP__styles__surveyTitle > span {
+  color: #fff !important; }
+
+._hj-widget-container ._hj-2VFEu__styles__stepDescription {
+  padding: 0px 12px 12px;
+  text-align: center;
+  word-break: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap; }
+
+._hj-widget-container ._hj-3xuJg__styles__embedded._hj-2gFBC__styles__surveyContainer {
+  position: static;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  margin: 0 auto;
+  min-width: 300px;
+  width: 100%;
+  transform: none;
+  border-radius: 5px;
+  font-size: 17px !important; }
+
+._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-3hGD3__styles__surveyBody {
+  min-height: 160px; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-3hGD3__styles__surveyBody {
+      min-height: 234px; } }
+
+._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-XnEwP__styles__surveyTitle,
+._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-XnEwP__styles__surveyTitle > span {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400 !important;
+  line-height: 1.2 !important; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-XnEwP__styles__surveyTitle,
+    ._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-XnEwP__styles__surveyTitle > span {
+      padding: 34px 42px 32px;
+      font-size: 26px; } }
+
+._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-2VFEu__styles__stepDescription {
+  text-align: left; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-3xuJg__styles__embedded ._hj-2VFEu__styles__stepDescription {
+      padding: 0px 42px 32px; } }
+
+._hj-1ZR3F__styles__openStateToggleIcon { }
+
+._hj-2EHD-__styles__surveysPrimaryButton {
+  height: initial !important; }
+  ._hj-2EHD-__styles__surveysPrimaryButton[disabled] {
+    background: #e6e6e6 !important;
+    box-shadow: none;
+    cursor: default; }
+
+._hj-2497K__styles__collapsedReplyButton { }
+</style><style>._hj-widget-container ._hj-1Wqov__styles__finalStep {
+  text-align: center;
+  padding: 20px;
+  margin: 0; }
+
+._hj-widget-container ._hj-3KrrI__styles__thankYouMessage {
+  display: block;
+  white-space: pre-wrap; }
+  ._hj-widget-container ._hj-3KrrI__styles__thankYouMessage._hj-2gxUw__styles__withConsent {
+    font-weight: bold !important;
+    font-size: 14px;
+    margin-bottom: 16px; }
+
+._hj-widget-container ._hj-1_D0q__styles__closeButton {
+  margin-top: 12px;
+  padding: 7px 20px !important; }
+
+._hj-widget-container ._hj-2Pmn-__styles__consentMessage a {
+  color: inherit !important; }
+
+._hj-widget-container ._hj-tJCtA__styles__consentButton {
+  font-size: 18px !important;
+  margin: 20px 5px 0 5px;
+  padding: 7px 10px !important;
+  width: 50px !important; }
+
+._hj-widget-container ._hj-3sKc3__styles__legalInfo {
+  padding: 0 12px 12px 12px; }
+  ._hj-widget-container ._hj-3sKc3__styles__legalInfo:after {
+    content: '';
+    clear: both !important;
+    display: block !important; }
+
+._hj-widget-container ._hj-2_C1f__styles__legalSite {
+  font-size: 11px;
+  text-decoration: none !important;
+  float: right !important; }
+  ._hj-widget-container ._hj-2_C1f__styles__legalSite:hover {
+    text-decoration: underline !important; }
+
+._hj-widget-container ._hj-3Z5dp__styles__legalName {
+  font-size: 11px;
+  float: left !important; }
+
+@media screen and (min-width: 440px) {
+  ._hj-widget-container ._hj-2LGFp__styles__embedded {
+    padding: 47px 79px; } }
+
+@media screen and (min-width: 440px) {
+  ._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-1Wqov__styles__finalStep {
+    padding: 0;
+    font-size: 18px; } }
+
+._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-3sKc3__styles__legalInfo {
+  text-align: center; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-3sKc3__styles__legalInfo {
+      padding: 0; } }
+
+._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-3Z5dp__styles__legalName,
+._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-2_C1f__styles__legalSite {
+  float: none !important;
+  font-size: 14px;
+  line-height: 2; }
+
+._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-3Z5dp__styles__legalName {
+  display: block;
+  font-weight: bold !important; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-2LGFp__styles__embedded ._hj-3Z5dp__styles__legalName {
+      margin-top: 24px; } }
+
+._hj-1_D0q__styles__closeButton,
+._hj-tJCtA__styles__consentButton {
+  height: initial !important; }
+</style><style>._hj-widget-container ._hj-21lNd__styles__surveyHotjarUpsell {
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(93, 255, 211, 0.2);
+  font-size: 14px; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-21lNd__styles__surveyHotjarUpsell {
+      margin-top: 24px;
+      padding: 24px; } }
+
+._hj-widget-container ._hj-fWDLn__styles__surveySignupButton {
+  margin-top: 12px;
+  text-decoration: none !important;
+  background: #3c3c3c !important; }
+  ._hj-widget-container ._hj-fWDLn__styles__surveySignupButton:hover, ._hj-widget-container ._hj-fWDLn__styles__surveySignupButton:focus, ._hj-widget-container ._hj-fWDLn__styles__surveySignupButton:active {
+    background: black !important; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-fWDLn__styles__surveySignupButton {
+      margin-top: 16px; } }
+
+._hj-widget-container ._hj-9Lj_P__styles__hotjarlogoContainer {
+  margin-top: 12px; }
+  @media screen and (min-width: 440px) {
+    ._hj-widget-container ._hj-9Lj_P__styles__hotjarlogoContainer {
+      margin-top: 16px; } }
+
+._hj-fWDLn__styles__surveySignupButton { }
+</style><style>._hj-widget-container ._hj-QNHBM__styles__link {
+  font-size: 11px;
+  line-height: 16px;
+  direction: ltr !important; }
+
+._hj-widget-container ._hj-31RM1__styles__logo {
+  width: 50px;
+  height: 30px; }
+</style><style>._hj-widget-container ._hj-2biI-__styles__surveyFooter {
+  width: 100%;
+  border-top: 1px solid; }
+  ._hj-widget-container ._hj-2biI-__styles__surveyFooter:after {
+    content: '';
+    clear: both !important;
+    display: block !important; }
+
+._hj-widget-container ._hj-3IN1-__styles__surveyBranding {
+  padding: 12px 0 0 12px;
+  float: left !important; }
+
+._hj-widget-container ._hj-1VIRR__styles__surveyActions {
+  float: right !important; }
+
+._hj-widget-container ._hj-39yFl__styles__surveySkipButton {
+  margin: 12px 12px 12px 0; }
+
+._hj-widget-container ._hj-rnxC1__styles__surveyActionButton {
+  margin: 12px 12px 12px 0; }
+  ._hj-widget-container ._hj-rnxC1__styles__surveyActionButton[disabled] span {
+    background-position: -48px 0; }
+
+._hj-widget-container ._hj-e_zIv__styles__surveyActionButtonIcon {
+  background-position: -64px 0;
+  margin-left: 8px; }
+  ._hj-widget-container ._hj-e_zIv__styles__surveyActionButtonIcon._hj-3Apb___styles__finalStep {
+    background-position: -80px 0; }
+
+._hj-widget-container ._hj-1XJ9A__styles__embedded ._hj-2biI-__styles__surveyFooter {
+  background-color: rgba(203, 203, 203, 0.19); }
+
+@media screen and (min-width: 440px) {
+  ._hj-widget-container ._hj-1XJ9A__styles__embedded ._hj-3IN1-__styles__surveyBranding {
+    padding: 15px 0 0 36px; }
+  ._hj-widget-container ._hj-1XJ9A__styles__embedded ._hj-39yFl__styles__surveySkipButton {
+    margin-top: 15px; }
+  ._hj-widget-container ._hj-1XJ9A__styles__embedded ._hj-rnxC1__styles__surveyActionButton {
+    margin: 15px 42px 12px 0; }
+  ._hj-widget-container ._hj-1XJ9A__styles__embedded ._hj-2Zf33__styles__surveyActionButtonRtl {
+    margin-right: 12px; }
+  ._hj-widget-container ._hj-1XJ9A__styles__embedded ._hj-1bc6-__styles__surveySkipButtonRtl {
+    margin-right: 32px; } }
+
+._hj-e_zIv__styles__surveyActionButtonIcon { }
+
+._hj-rnxC1__styles__surveyActionButton { }
+
+._hj-2Zf33__styles__surveyActionButtonRtl {
+  padding-right: 10px; }
+  ._hj-2Zf33__styles__surveyActionButtonRtl ._hj-e_zIv__styles__surveyActionButtonIcon {
+    margin-left: 0; }
+
+._hj-39yFl__styles__surveySkipButton { }
+
+._hj-1bc6-__styles__surveySkipButtonRtl {
+  padding-right: 10px; }
+</style></head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-green">
+      <a class="navbar-brand" href="https://course.betrybe.com/">
+        <img src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/logo_white.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav ml-auto course-nav">
+  <li>
+    <span class="nav-link">Leandro parisi carvalho Belisário</span>
+  </li>
+  <li>
+<a class="nav-link" href="https://course.betrybe.com/solutions">Gabaritos</a>  </li>
+  <li>
+<a class="nav-link" href="https://course.betrybe.com/calendar">Agenda</a>  </li>
+  <li>
+<a class="nav-link" href="https://course.betrybe.com/live-lectures">Aulas ao Vivo</a>  </li>
+  <li>
+<a class="nav-link" href="https://course.betrybe.com/trybe-talks">Trybe Talks</a>  </li>
+  <li>
+<a class="nav-link" href="https://course.betrybe.com/real-life-engineer/glossary">Glossário</a>  </li>
+  <li>
+<a class="nav-link" href="https://course.betrybe.com/logout" title="Logout">Logout</a>  </li>
+  <li>
+<img alt="avatar image" class="rounded-circle z-depth-0" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/44ba309823111f30a2c103e1c5b01e04.webp" height="40">  </li>
+</ul>
+      </div>
+    </nav>
+
+    <div id="content">
+<div class="jumbotron">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="https://course.betrybe.com/">TRYBE</a>
+        </li>
+        <li class="breadcrumb-item active">
+          <a href="https://course.betrybe.com/front-end/js-unit-tests/jest-mocks">Jest - Simulando comportamentos</a>
+        </li>
+      </ol>
+    </nav>
+
+    <h1 class="display-4 text-center">Jest - Simulando comportamentos</h1>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="row main-content">
+      <div class="col-sm-3">
+        <nav id="toc" class="sticky-top" data-toggle="toc"><ul class="nav navbar-nav"><li><a class="nav-link" href="#o-que-vamos-aprender">O que vamos aprender?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#você-será-capaz-de">Você será capaz de:</a></li></ul></li><li><a class="nav-link" href="#por-que-isso-é-importante">Por que isso é importante?</a></li><li><a class="nav-link active" href="#conteúdos">Conteúdos</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#os-mocks">Os Mocks</a></li><li><a class="nav-link active" href="#mockando-funções">Mockando funções</a></li><li><a class="nav-link" href="#mockando-módulos">Mockando Módulos</a></li><li><a class="nav-link" href="#trabalhando-com-mock-e-funções-originais">Trabalhando com mock e funções originais</a></li><li><a class="nav-link" href="#mock-e-funções-assíncronas">Mock e funções assíncronas</a></li><li><a class="nav-link" href="#para-fixar">Para fixar</a></li></ul></li><li><a class="nav-link" href="#vamos-fazer-juntos">Vamos fazer juntos</a></li><li><a class="nav-link" href="#exercícios">Exercícios</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#antes-de-começar-versionando-seu-código">Antes de começar: versionando seu código </a></li><li><a class="nav-link" href="#agora-a-prática">Agora, a prática</a></li></ul></li><li><a class="nav-link" href="#recursos-adicionais-opcional">Recursos adicionais (opcional)</a></li><li><a class="nav-link" href="#próximo">Próximo</a></li></ul></nav>
+      </div>
+      <article class="article col-sm-9">
+<h2 id="o-que-vamos-aprender">O que vamos aprender?</h2>
+<p>As <code class="inline">Mock functions</code> são ferramentas que nos permitem simular o comportamento de funções reais.</p>
+<p>Imagine o seguinte cenário: em um teste, você tem funções com 
+retornos variáveis, como requisições (imagine uma API que retorne um 
+erro de indisponibilidade em vez do resultado esperado, por exemplo) e 
+funções de retorno aleatório. Não há como testar se de fato elas, ou a 
+lógica que depende delas, estão funcionando. A depender do retorno, o 
+teste às vezes passará, e às vezes não.</p>
+<p>Para adereçar esse problema, podemos <em>simular</em> o comportamento de tais funções no contexto do teste. No Jest, as <code class="inline">Mock functions</code>
+ simulam o comportamento de uma função real, apenas no escopo do teste, e
+ nos dão controle sobre qual retorno essa função envia e quantas vezes 
+ela foi chamada, entre outras coisas.</p>
+<hr class="thin">
+<h3 id="você-será-capaz-de">Você será capaz de:</h3>
+<ul>
+<li><p>Utilizar o mock functions do Jest para simular funções e seus retornos;</p>
+</li>
+<li><p>Testar requisições a uma API sem a necessidade de ter uma conexão real com ela.</p>
+</li>
+</ul>
+<hr class="thin">
+<h2 id="por-que-isso-é-importante">Por que isso é importante?</h2>
+<ul>
+<li><p>Em uma aplicação real, testamos o código centenas e centenas de 
+vezes, e não podemos ficar à mercê de testes que demoram minutos para 
+rodar ou que possam falhar em suas requisições;</p>
+</li>
+<li><p>Simular ou <code class="inline">mockar</code> funções é a forma mais prática e performática de realizar testes <strong>confiáveis</strong> e controlar seu comportamento.</p>
+</li>
+</ul>
+<hr class="thin">
+<h2 id="conteúdos">Conteúdos</h2>
+<h6>Tempo sugerido para realização: 80 minutos</h6>
+<h3 id="os-mocks">Os Mocks</h3>
+<p>O objetivo de se <em>mockar</em> uma função, módulo ou requisição é 
+permitir a quem desenvolve ter controle sobre todo o funcionamento de 
+seus testes. Pense no projeto bônus do bloco 5, o <code class="inline">Adivinhe a cor</code>,
+ em que era necessário gerar cores aleatórias. Como testar essas cores, 
+se não sabemos quais serão geradas? Pense também em uma requisição de 
+API que constantemente muda seu retorno. Como ter certeza do seu retorno
+ e, principalmente, de que seu teste não está caindo em um <strong>falso-positivo</strong>?</p>
+<p>No exemplo abaixo, podemos ver um caso em que simular o comportamento da função seria necessário para o teste:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">retornaNumeroAleatorio</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">divisivelPorDois</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token function">retornaNumeroAleatorio</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'quando o número aleatório é par, a função retorna `true`'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">divisivelPorDois</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Como garantimos que o número retornado será par?</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p> <em>Mockar</em> o comportamento da função <code class="inline">retornaNumeroAleatorio()</code> para garantir que ela está, nesse teste, retornando um número par, seria a solução pra esse impasse!</p>
+<p>Dentre as principais formas de se <em>mockar</em> algo em Jest, destacam-se três:</p>
+<ul>
+<li>jest.fn();
+</li>
+<li>jest.mock();
+</li>
+<li>jest.spyOn();
+</li>
+</ul>
+<h3 id="mockando-funções">Mockando funções</h3>
+<p>O método <strong>jest.fn()</strong> configura-se como a forma mais simples de se mockar algo: ele transforma uma função em uma simulação. Ou seja: ao <em>mockar</em> uma função com o <code class="inline">jest.fn()</code> e fazer a chamada da mesma, o comportamento definido no <em>mock</em> será chamado, em vez da função original.</p>
+<p>Ele é muito útil para casos como o do projeto <code class="inline">Adivinhe a cor</code>, em que precisamos ter controle das cores geradas aleatoriamente para testar tudo corretamente.</p>
+<p>Imagine que a função geradora de cor aleatória seja essa e esteja no arquivo <code class="inline">service.js</code>:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">function</span> <span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> r <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> g <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> b <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">rgb(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>r<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>g<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> randomRgbColor <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Fazendo o teste para saber se a função é chamada, temos:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> service <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./service'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#randomRgbColor"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando se a função foi chamada</span>
+  service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Esse teste deveria passar, não? Afinal, a função foi chamada logo 
+acima dele. Mas ele não passa, e o erro nos indica o que fazer:</p>
+<blockquote><p> <strong>Matcher error</strong>: received value must be a mock or spy function</p>
+</blockquote>
+<p>Esse erro acontece porque a propriedade <em>toHaveBeenCalled</em>, 
+assim como outras que serão ensinadas a seguir, são exclusivas para 
+funções simuladas. Ou seja: se você não simula uma função, a propriedade
+ não funciona corretamente.</p>
+<p>Portanto, vamos utilizar o jest.fn() para testar a chamada dessa função:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> service <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./service'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#randomRgbColor"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando se a função foi chamada. Não simulamos nenhum comportamento aqui, pois, para esse teste, isso não importa! Queremos saber se ela foi chamada e ponto final.</span>
+  service<span class="token punctuation">.</span>randomRgbColor <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Ao declarar <code class="inline">service.randomRgbColor = jest.fn();</code>, estamos dizendo ao teste que, a partir daquele momento, estamos tomando controle da função <code class="inline">service.randomRgbColor</code> e que ela será uma simulação da função original.</p>
+<p>Por ser uma simulação, podemos especificar qual vai ser o retorno da função. Basicamente, o que podemos dizer é: <em>"No contexto deste teste, quando essa função for chamada, ela retornará o valor que eu defini, ao invés de um valor aleatório!"</em>. Duas propriedades nos permitem fazer essa declaração: <code class="inline">mockReturnValue(value)</code> e <code class="inline">mockReturnValueOnce(value)</code>. O <code class="inline">mockReturnValue</code> define um valor padrão de retorno. Já o <code class="inline">mockReturnValueOnce</code>
+ retorna o valor definido apenas uma vez, e é importante, pois pode ser 
+encadeado para que chamadas sucessivas retornem valores diferentes.</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> service <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./service'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#randomRgbColor"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando se a função foi chamada e qual seu retorno</span>
+  service<span class="token punctuation">.</span>randomRgbColor <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mockReturnValue</span><span class="token punctuation">(</span><span class="token string">"rgb(255, 255, 255)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">"rgb(255, 255, 255)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Na terceira linha do exemplo acima, estamos manualmente chamando a função <em>service.randomRgbColor();</em>. Caso isso não seja feito, o teste <em>expect(service.randomRgbColor).toHaveBeenCalled()</em> irá falhar. Isso acontece porque <em>mockar</em> uma função redefine seu comportamento, mas não a executa. A propriedade <em>toHaveBeenCalled()</em> espera que a função dentro do <code class="inline">expect</code> tenha sido executada por alguma chamada anterior a essa linha dentro do contexto desse teste.</p>
+<p>Além disso, podemos também testar quantas vezes a função foi chamada. Para isso, utilizamos a propriedade <code class="inline">toHaveBeenCalledTimes(number)</code>:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> service <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./service'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#randomRgbColor"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando quantas vezes a função foi chamada e qual seu retorno</span>
+  service<span class="token punctuation">.</span>randomRgbColor <span class="token operator">=</span> jest
+    <span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">mockReturnValue</span><span class="token punctuation">(</span><span class="token string">'default value'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">mockReturnValueOnce</span><span class="token punctuation">(</span><span class="token string">'first call'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">mockReturnValueOnce</span><span class="token punctuation">(</span><span class="token string">'second call'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">"first call"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">"second call"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span><span class="token function">randomRgbColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">"default value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>service<span class="token punctuation">.</span>randomRgbColor<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>É possível implementar vários comportamentos em uma simulação. No exemplo acima, note que a implementação <em>mockReturnValueOnce</em> se sobrepõe em relação a <em>mockReturnValue</em>, que se torna um padrão apenas após os retornos de <em>mockReturnValueOnce</em> serem executados.</p>
+<h4>Para fixar</h4>
+<ol>
+<li>Baseando-se nos códigos acima, defina uma função que retorna um número aleatório entre <code class="inline">1</code> e <code class="inline">100</code>.
+ A seguir, defina uma outra função que recebe um parâmetro e checa se o 
+número aleatório é divisível pelo número do parâmetro. Assim:
+</li>
+</ol>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">randomNumber</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token comment">// Lógica de gerar o número</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">isDivisible</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">number</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> number<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">0</span></code></pre>
+<p>Feito isso, escreva um teste que verifica que a função <code class="inline">randomNumber()</code> é chamada quando invocamos a <code class="inline">isDivisible()</code>.</p>
+<ol start="2">
+<li>Teste que, quando a <code class="inline">randomNumber()</code> retorna um número par e <code class="inline">isDivisible()</code> recebe um dois, o retorno é <code class="inline">true</code>.
+</li>
+<li>Simule (<em>mocke</em>) dois valores para a função <code class="inline">randomNumber()</code> retornar e um terceiro valor default. Chame a função <code class="inline">isDivisible()</code> quatro vezes num mesmo teste e cheque que os retornos são conforme esperado.
+</li>
+</ol>
+<h3 id="mockando-módulos">Mockando Módulos</h3>
+<p>Diferente do <code class="inline">jest.fn()</code>, que simula apenas uma função por vez, temos o <code class="inline">jest.mock()</code>, que tem como principal diferencial <code class="inline">mockar</code> todo um pacote de dependências ou módulo de uma vez.</p>
+<p>Por exemplo: em um arquivo chamado <code class="inline">math.js</code>, temos as seguintes funções:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">somar</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">await</span> <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Função de somar mais lenta do mundo</span>
+<span class="token keyword">const</span> <span class="token function-variable function">subtrair</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">multiplicar</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">dividir</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">/</span> b<span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> somar<span class="token punctuation">,</span> subtrair<span class="token punctuation">,</span> multiplicar<span class="token punctuation">,</span> dividir <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Utilizando o <code class="inline">jest.fn()</code>, teríamos que <code class="inline">mockar</code> todas as funções uma a uma.
+Com o <code class="inline">jest.mock()</code>, podemos <code class="inline">mockar</code> todas com um só comando:</p>
+<blockquote><p>jest.mock('./math');</p>
+</blockquote>
+<p>Uma vez que <em>mockarmos</em> todo o arquivo <code class="inline">math.js</code> e, portanto, passemos a simular o comportamento de todas as suas funções, caso passemos os parâmetros 1 e 2 para a função <code class="inline">somar</code>,
+ por exemplo, o retorno será "undefined". Isso se dá porque a simulação 
+deixou de acessar o comportamento da função original do <code class="inline">math.js</code>. Apesar de podermos definir um retorno com <code class="inline">mockReturnValue</code>,
+ há casos em que é útil ir além dessa capacidade de retornar valores e 
+criar um novo comportamento para a função simulada. É o que o método <code class="inline">mockImplementation(func)</code> faz. Ele aceita uma função que deve ser usada como implementação.</p>
+<p>Veja um exemplo:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+jest<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">"./math"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#somar"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Aqui testamos se função foi chamada, quantas vezes foi chamada, quais parâmetros foram usados e qual seu retorno</span>
+
+  math<span class="token punctuation">.</span>somar<span class="token punctuation">.</span><span class="token function">mockImplementation</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledWith</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>No exemplo acima, utilizamos também o método <code class="inline">toHaveBeenCalledWith(...args)</code>, que valida quais parâmetros foram passados para a função.</p>
+<p>Assim como o <code class="inline">mockReturnValueOnce</code>, podemos também implementar uma funcionalidade para apenas uma chamada com <code class="inline">mockImplementationOnce</code>.</p>
+<h3 id="trabalhando-com-mock-e-funções-originais">Trabalhando com mock e funções originais</h3>
+<p>Você já aprendeu que ter controle sobre uma função e usar <em>matchers</em> como o <code class="inline">toHaveBeenCalled</code> são ferramentas essenciais para quem desenvolve. Mas há casos em que
+é útil verificar os efeitos colaterais de uma função, como em uma alteração de página. Como fazer isso se, ao se <em>mockar</em> uma função, ela perde sua implementação original, mas, sem <em>mockar</em>, não podemos testá-la com o matcher?</p>
+<p>O <strong>jest.spyOn()</strong> é capaz de resolver esse problema. Ele "espia" a chamada da função simulada, enquanto deixa a implementação original ativa.</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#somar"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando se a função foi chamada, quantas vezes foi chamada, quais parâmetros foram usados e qual seu retorno</span>
+  <span class="token keyword">const</span> mockSomar <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">spyOn</span><span class="token punctuation">(</span>math<span class="token punctuation">,</span> <span class="token string">"somar"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>mockSomar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>mockSomar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>mockSomar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledWith</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">mockSomar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Podemos notar no exemplo que a simulação da função é criada, mas sua implementação é mantida, e a soma realizada.</p>
+<p>Há também como limpar, resetar ou restaurar <code class="inline">mocks</code>. Existem três métodos capazes de fazer isso:</p>
+<ul>
+<li><p><code class="inline">mock.mockClear()</code></p>
+<ul>
+<li>Útil quando você deseja limpar os dados de uso de uma simulação entre dois <code class="inline">expect</code>s;
+</li>
+</ul>
+</li>
+<li><p><code class="inline">mock.mockReset()</code></p>
+<ul>
+<li>Faz o que o <code class="inline">mockClear()</code> faz;
+</li>
+<li>Remove qualquer retorno estipulado ou implementação;
+</li>
+<li>Útil quando você deseja resetar uma simulação para seu estado inicial;
+</li>
+</ul>
+</li>
+<li><p><code class="inline">mock.mockRestore()</code></p>
+<ul>
+<li>Faz tudo que <code class="inline">mockReset()</code> faz;
+</li>
+<li>Restaura a implementação original;
+</li>
+<li>Útil para quando você quer simular funções em certos casos de teste e restaurar a implementação original em outros;
+</li>
+</ul>
+</li>
+</ul>
+<p>Como exemplo, imagine que você queira testar a função <em>mockada</em> <code class="inline">somar</code> implementando para ela um método de subtração, mas que depois você queira redefinir as implementações do <code class="inline">mock</code>.</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#somar"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando a implementação original, o mock e o mock resetado</span>
+
+  <span class="token comment">// implementação original</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// criando o mock e substituindo a implementação para uma subtração</span>
+  math<span class="token punctuation">.</span>somar <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mockImplementation</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">-</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenLastCalledWith</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// resetando o mock</span>
+  math<span class="token punctuation">.</span>somar<span class="token punctuation">.</span><span class="token function">mockReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>somar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenLastCalledWith</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>No exemplo acima, por termos usado o jest.fn(), não há como restaurar
+ as implementações originais da função, pois suas funcionalidades não 
+permitem. A única ferramenta que nos permite transitar entre simulação e
+ comportamento original é o <strong>jest.spyOn()</strong>.</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#somar"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// testando a implementação original, o mock e a restauração da função original</span>
+
+  <span class="token comment">// implementação original</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// criando o mock e substituindo a implementação para uma subtração</span>
+  <span class="token keyword">const</span> mockSomar <span class="token operator">=</span> jest
+    <span class="token punctuation">.</span><span class="token function">spyOn</span><span class="token punctuation">(</span>math<span class="token punctuation">,</span> <span class="token string">"somar"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">mockImplementation</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">-</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>mockSomar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">mockSomar</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>mockSomar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>mockSomar<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenLastCalledWith</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// restaurando a implementação original</span>
+  math<span class="token punctuation">.</span>somar<span class="token punctuation">.</span><span class="token function">mockRestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">somar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="mock-e-funções-assíncronas">Mock e funções assíncronas</h3>
+<p>Os testes que dependem de requisições são os mais beneficiados com o uso do <code class="inline">mock</code>. Excluem problemáticas como falha na API, instabilidade de internet e tamanho de retorno.</p>
+<p>Requisições para APIs podem levar vários segundos para serem 
+realizadas, descartando todas as problemáticas listadas acima. Imagine 
+que você precise fazer 15 testes que dependem dessas requisições. Se 
+torna inviável fazer 15 requisições, pois pode aumentar muito o tempo 
+para a realização de todos os testes, além de sobrecarregar a API com 
+chamadas cada vez que for fazer um teste!</p>
+<p>Da mesma maneira que podemos <em>mockar</em> funções síncronas, podemos fazê-lo com as assícronas. A diferença se dá nas implementações.</p>
+<p>Nas funções assíncronas, utilizamos o <code class="inline">mockResolvedValue(value)</code> ou o <code class="inline">mockRejectedValue(value)</code>. Assim como nas demais implementações, podemos definir o retorno para apenas uma chamada com <code class="inline">mockResolvedValueOnce(value)</code> ou <code class="inline">mockRejectedValueOnce(value)</code>.</p>
+<p>Temos, num arquivo <code class="inline">api.js</code>, uma requisição para a API Estúdios Ghibli:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">function</span> <span class="token function">fetchURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://ghibliapi.herokuapp.com/species'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span>
+    response
+      <span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">json</span> <span class="token operator">=&gt;</span>
+        response<span class="token punctuation">.</span>ok <span class="token operator">?</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span> <span class="token operator">:</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> fetchURL <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>O retorno dessa requisição será um array com de 200 posições no seguinte formato:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    id<span class="token operator">:</span> <span class="token string">"b5a92d0e-5fb4-43d4-ba60-c012135958e4"</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">"Spirit"</span><span class="token punctuation">,</span>
+    classification<span class="token operator">:</span> <span class="token string">"Spirit"</span><span class="token punctuation">,</span>
+    eye_colors<span class="token operator">:</span> <span class="token string">"Red"</span><span class="token punctuation">,</span>
+    hair_colors<span class="token operator">:</span> <span class="token string">"Light Orange"</span><span class="token punctuation">,</span>
+    url<span class="token operator">:</span>
+      <span class="token string">"https://ghibliapi.herokuapp.com/species/b5a92d0e-5fb4-43d4-ba60-c012135958e4"</span><span class="token punctuation">,</span>
+    people<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"https://ghibliapi.herokuapp.com/people/ca568e87-4ce2-4afa-a6c5-51f4ae80a60b"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    films<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"https://ghibliapi.herokuapp.com/films/0440483e-ca0e-4120-8c50-4c8cd9b965d6"</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token comment">// ...</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<p>No próximo exemplo vamos <em>mockar</em> a requisição e fazer dois testes: implementar um valor para quando a promise for resolvida e para quando ela for rejeitada.</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> api <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./api"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"testando a requisição"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> apiURL <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">spyOn</span><span class="token punctuation">(</span> api<span class="token punctuation">,</span> <span class="token string">"fetchURL"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">afterEach</span><span class="token punctuation">(</span>apiURL<span class="token punctuation">.</span>mockReset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"testando requisição caso a promise resolva"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    apiURL<span class="token punctuation">.</span><span class="token function">mockResolvedValue</span><span class="token punctuation">(</span><span class="token string">'requisição realizada com sucesso'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">apiURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>apiURL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>apiURL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">apiURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>resolves<span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token string">'requisição realizada com sucesso'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>apiURL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"testando requisição caso a promise seja rejeitada"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    apiURL<span class="token punctuation">.</span><span class="token function">mockRejectedValue</span><span class="token punctuation">(</span><span class="token string">'a requisição falhou'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span>apiURL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">apiURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>rejects<span class="token punctuation">.</span><span class="token function">toMatch</span><span class="token punctuation">(</span><span class="token string">'a requisição falhou'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>apiURL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Caso queira simular os efeitos colaterais da API, você pode definir o
+ retorno como um objeto JSON. No exemplo abaixo, ao invés de carregar um
+ array de 200 objetos, vamos definir o retorno com apenas 1.</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> api <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./api"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> requestReturn <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    id<span class="token operator">:</span> <span class="token string">"b5a92d0e-5fb4-43d4-ba60-c012135958e4"</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">"Spirit"</span><span class="token punctuation">,</span>
+    classification<span class="token operator">:</span> <span class="token string">"Spirit"</span><span class="token punctuation">,</span>
+    eye_colors<span class="token operator">:</span> <span class="token string">"Red"</span><span class="token punctuation">,</span>
+    hair_colors<span class="token operator">:</span> <span class="token string">"Light Orange"</span><span class="token punctuation">,</span>
+    url<span class="token operator">:</span>
+      <span class="token string">"https://ghibliapi.herokuapp.com/species/b5a92d0e-5fb4-43d4-ba60-c012135958e4"</span><span class="token punctuation">,</span>
+    people<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"https://ghibliapi.herokuapp.com/people/ca568e87-4ce2-4afa-a6c5-51f4ae80a60b"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    films<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"https://ghibliapi.herokuapp.com/films/0440483e-ca0e-4120-8c50-4c8cd9b965d6"</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"#fetchURL"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  api<span class="token punctuation">.</span>fetchURL <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mockResolvedValue</span><span class="token punctuation">(</span>requestReturn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>A grande vantagem desse exemplo é que, neste teste, sequer fazemos 
+uma requisição à API real! Assim evitamos todos os problemas que 
+mencionamos anteriormente.</p>
+<h3 id="para-fixar">Para fixar</h3>
+<p>Utilize as funções do arquivo 'math.js' para realizar os exercícios:</p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">somar</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">await</span> <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Função de somar mais lenta do mundo</span>
+<span class="token keyword">const</span> <span class="token function-variable function">subtrair</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">multiplicar</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">dividir</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">/</span> b<span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> somar<span class="token punctuation">,</span> subtrair<span class="token punctuation">,</span> multiplicar<span class="token punctuation">,</span> dividir <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<ol>
+<li>Faça o <em>mock</em> da funcão <strong>subtrair</strong> e teste sua chamada.
+</li>
+<li>Faça o <em>mock</em> da função <strong>multiplicar</strong> e implemente como retorno padrão o valor '10'. Teste a chamada e o retorno.
+</li>
+<li>Faça o <em>mock</em> da função <strong>somar</strong> e implemente uma função que recebe dois valores e retorna sua soma. Teste a chamada, o retorno e os parâmetros passados.
+</li>
+<li>Faça o <em>mock</em> da função <strong>dividir</strong> e implemente
+ um retorno padrão com o valor '15'. Implemente também os seguintes 
+valores para a primeira e segunda chamadas: '2' e '5'. Teste a chamada, o
+ retorno, os parâmetros e quantas vezes a função foi chamada.
+</li>
+<li>Faça o <em>mock</em> da função <strong>subtrair</strong> de maneira 
+que seja possível restaurar sua implementação original. Defina como 
+retorno padrão o valor '20'. Teste o número de chamadas e o retorno. 
+Restaure a implementação original da função e teste sua execução.
+</li>
+</ol>
+<hr class="thin">
+<h2 id="vamos-fazer-juntos">Vamos fazer juntos</h2>
+<h6>Tempo sugerido para realização: 80 minutos</h6>
+<p>É hora de colocar em prática todo esse conhecimento. Vamos para o 
+Slack, onde estará disponível o link da nossa aula ao vivo de hoje.</p>
+<hr class="thin">
+<h2 id="exercícios">Exercícios</h2>
+<h6>Tempo sugerido para realização: 140 minutos</h6>
+<p>
+</p><h3 id="antes-de-começar-versionando-seu-código">Antes de começar: versionando seu código </h3>
+
+<p>Para versionar seu código, utilize o seu repositório de exercícios. 😉</p>
+  
+<p>Caso você ainda não tenha um, crie um repositório com o nome <strong>Trybe</strong> ou algo similar.</p> 
+
+<p>Abaixo você vai ver exemplos de como organizar cada exercício em uma <code>branch</code>, com arquivos e
+  <code>commits</code> específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a
+  seguir.</p>
+
+<ol>
+  <li>
+    <p>Crie uma <code>branch</code> com o nome <code>exercises/10.3</code> <em>(bloco 10, dia
+        3)</em></p>
+
+    <button class="copy-code-button" type="button">Copiar</button><div class="highlight">
+      <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4" class="  language-sh"><code class="  language-sh" data-lang="sh"><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">git checkout -b exercises/10.3</span></span></code></pre>
+    </div>
+  </li>
+
+  <li>
+    <p>Crie um diretório <code>exercises</code> e, dentro dele, um diretório <code>10_3</code>. O caminho
+      completo para
+      o diretório a partir da raiz do projeto deverá ser <code>exercises/10_3</code>.</p>
+
+    <button class="copy-code-button" type="button">Copiar</button><div class="highlight">
+      <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4" class="  language-sh"><code class="  language-sh" data-lang="sh"><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">mkdir -p exercises/10_3</span></span>
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">cd exercises/10_3</span></span>
+<span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">pwd</span></span>
+<span class="token output">&lt;path_to_your_repo&gt;/exercises/10_3</span></code></pre>
+    </div>
+  </li>
+
+  <li>
+    <p>Crie um arquivo com um nome descritivo para cada exercício. Os arquivos devem estar dentro da pasta
+      <code>exercises/10_3</code>, mas lembre-se de fazer os commits a partir da pasta raiz do seu
+      projeto!</p>
+
+    <button class="copy-code-button" type="button">Copiar</button><div class="highlight">
+      <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4" class="  language-sh"><code class="  language-sh" data-lang="sh"><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">git status</span></span>
+<span class="token output">On branch exercises/10.3
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+  modified:   exercise_1.html</span></code></pre>
+    </div>
+  </li>
+
+  <li>
+    <p>Faça <code>commits</code> organizados durante o processo de resolução de cada um de seus exercícios. As mensagens
+      dos <code>commits</code> devem ser breves e explicativas.</p>
+
+    <button class="copy-code-button" type="button">Copiar</button><div class="highlight">
+      <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4" class="  language-sh"><code class="  language-sh" data-lang="sh"><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">git log</span></span>
+<span class="token output">commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -&gt; exercises/10.3)
+Author: Tryber Bot &lt;tryberbot@betrybe.com&gt;
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot &lt;tryberbot@betrybe.com&gt;
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot &lt;tryberbot@betrybe.com&gt;
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener</span></code></pre>
+    </div>
+  </li>
+
+  <li>
+    <p>Lembre-se que <strong>na primeira vez</strong> que você for enviar o código para o repositório remoto a branch
+      <code>exercises/10.3</code> não vai existir lá.<br>Então você precisa configurar o
+      <code>remote</code>
+      utilizando a
+      opção <code>--set-upstream</code> (ou <code>-u</code>, que é a forma abreviada).</p>
+
+    <button class="copy-code-button" type="button">Copiar</button><div class="highlight">
+      <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4" class="  language-sh"><code class="  language-sh" data-lang="sh"><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">git push -u origin exercises/10.3</span></span></code></pre>
+    </div>
+  </li>
+
+  <li>
+    <p>Lembre-se de enviar os commits para o repositório do <code>GitHub</code> <del>de vez em sempre</del>.</p>
+
+    <button class="copy-code-button" type="button">Copiar</button><div class="highlight">
+      <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4" class="  language-sh"><code class="  language-sh" data-lang="sh"><span class="token command"><span class="token shell-symbol important">$</span> <span class="token bash language-bash">git push origin exercises/10.3</span></span></code></pre>
+    </div>
+  </li>
+
+  <li>
+    <p>Quando terminar os exercícios, seus códigos devem estar todos commitados na branch
+      <code>exercises/10.3</code>, e
+      disponíveis no repositório remoto do <code>GitHub</code>. <br>Pra finalizar, crie um <a href="https://help.github.com/en/articles/creating-a-pull-request" class="external-link" target="_blank">
+        <code>Pull Request</code>
+      </a>
+      , adicione uma descrição bem bacana, e envie para a monitoria e/ou colegas revisarem! 🤜🏼🤛🏼</p>
+  </li>
+</ol>
+
+<hr>
+<p></p>
+<h3 id="agora-a-prática">Agora, a prática</h3>
+<ol>
+<li><p>Crie uma função que gere um número aleatório entre 0 e 100. Você 
+irá criar também os testes para essa função. Utilizando o mock, defina o
+ retorno padrão como 10. Teste se a função foi chamada, qual seu retorno
+ e quantas vezes foi chamada.</p>
+</li>
+<li><p>Com a mesma função do exercício anterior, utilizando o mock, crie
+ uma nova implementação, que deve receber dois parâmetros e retornar a 
+divisão do primeiro pelo segundo. Essa implementação deve ocorrer uma 
+única vez. Faça os testes necessários.</p>
+</li>
+<li><p>Ainda com a mesma função do primeiro exercício, utilizando o 
+mock, crie uma nova implementação que receba três parâmetros e retorne 
+sua multiplicação. Após fazer os devidos testes para ela, resete sua 
+implementação e crie uma nova, que receba um parâmetro e retorne seu 
+dobro. Faça os testes necessários.</p>
+</li>
+<li><p>Dentro de um mesmo arquivo, crie três funções. A primeira deve 
+receber uma string e retorná-la em caixa alta. A segunda deve também 
+receber uma string e retornar só a primeira letra. A terceira deve 
+receber duas strings e concatená-las. Faça o mock do arquivo. Faça uma 
+nova implementação para a primeira função, mas agora ela deve retornar a
+ string em caixa baixa. Para a segunda função, uma nova implementação 
+deve retornar a última letra de uma string. A terceira deve receber três
+ strings e concatená-las.</p>
+</li>
+<li><p>Utilizando as mesmas funções do exercício anterior, repita a 
+implementação para a primeira função. Após repetir a implementação, 
+restaure a implementação original e crie os testes necessários para 
+validar.</p>
+</li>
+<li><p>Crie uma função que faça requisição para a api <a href="https://dog.ceo/dog-api/" class="external-link" rel="noreferrer noopener" target="_blank">dog pictures</a>. <em>Mocke</em>
+ a requisição e crie dois testes. O primeiro deve interpretar que a 
+requisição se resolveu e teve como valor "request sucess". O segundo 
+deve interpretar que a requisição falhou e ter como valor "request 
+failed". Crie todos os testes que achar necessário.</p>
+</li>
+</ol>
+<p><strong>Bônus</strong></p>
+<ol>
+<li>O código abaixo utiliza uma API de piadas e implementa o <code class="inline">fetchJoke</code>, que é um <em>gerador de piadas ruins</em>. As piadas são geradas aleatoriamente através do <em>endpoint</em> armazenado em <code class="inline">API_URL</code>. Faça um teste que verifique a chamada dessa <em>API</em> para um resultado específico. Para isso, faça um <em>mock</em> do <code class="inline">fetch</code>, que faz a chamada à <em>API</em>, utilizando os seguintes dados:
+</li>
+</ol>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token punctuation">{</span>
+  <span class="token string">'id'</span><span class="token operator">:</span> <span class="token string">'7h3oGtrOfxc'</span><span class="token punctuation">,</span>
+  <span class="token string">'joke'</span><span class="token operator">:</span> <span class="token string">'Whiteboards ... are remarkable.'</span><span class="token punctuation">,</span>
+  <span class="token string">'status'</span><span class="token operator">:</span> <span class="token number">200</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>Código do exercício</strong></p>
+<button class="copy-code-button" type="button">Copiar</button><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> <span class="token constant">API_URL</span> <span class="token operator">=</span> <span class="token string">'https://icanhazdadjoke.com/'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">fetchJoke</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">API_URL</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> headers<span class="token operator">:</span> <span class="token punctuation">{</span> Accept<span class="token operator">:</span> <span class="token string">'application/json'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> data<span class="token punctuation">.</span>joke<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<hr class="thin">
+<h2 id="recursos-adicionais-opcional">Recursos adicionais (opcional)</h2>
+<ul>
+<li><p><a href="https://devhints.io/jest#mock-functions" class="external-link" rel="noreferrer noopener" target="_blank">Mock Functions</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=3PjdxjWK0F0" class="external-link" rel="noreferrer noopener" target="_blank">Jest - Mocking basics - Video</a></p>
+</li>
+<li><p><a href="https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c" class="external-link" rel="noreferrer noopener" target="_blank">Understanding jest mocks</a></p>
+</li>
+<li><p><a href="https://jestjs.io/docs/pt-BR/mock-function-api" class="external-link" rel="noreferrer noopener" target="_blank">Jest documentation</a></p>
+</li>
+</ul>
+<hr class="thin">
+<h2 id="próximo">Próximo</h2>
+<p>No próximo dia, você se dedicará ao trabalho prático do bloco!</p>
+<p><a class="shadow btn-green btn btn-block mt-5" href="https://course.betrybe.com/front-end/projects/jest">Próximo passo: Projeto - Jest Assíncrono e Mocking 🚀</a></p>
+      </article>
+    </div>
+  </div>
+    </div>
+
+    <footer id="footer" class="footer footer-green">
+      <div class="container text-center text-md-left">
+<div class="row">
+  <div class="col-md-4 mb-md-0 mb-3">
+    <p class="font-weight-bold">Manual da Pessoa Estudante</p>
+    <p>
+      Sempre que achar necessário, consulte seu <a class="footer-link" href="https://sites.google.com/betrybe.com/manualdoestudantebetrybecom" target="_blank" rel="noopener noreferrer">Manual</a> para ter mais informações sobre o curso!
+    </p>
+  </div>
+  <hr class="clearfix w-100 d-md-none pb-3">
+  <div class="col-md-4 mb-md-0 mb-3">
+    <p class="text-uppercase font-weight-bold">Tutoriais</p>
+    <ul class="list-unstyled">
+      <li>
+        <a class="footer-link" href="https://course.betrybe.com/tutorials/slack">
+          Como usar bem o Slack
+        </a>
+      </li>
+      <li>
+        <a class="footer-link" href="https://course.betrybe.com/tutorials/zoom">
+          Como usar bem o Zoom
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr class="clearfix w-100 d-md-none pb-3">
+  <div class="col-md-4 mt-md-0 mt-3">
+    <p class="font-weight-bold">
+      Este conteúdo está em constante desenvolvimento.
+    </p>
+    <p>
+      Envie seu feedback (com o link da página) para nós <a class="footer-link" href="slack://channel?id=CMRKEQW7N&amp;team=TMDDFEPFU" target="_blank" rel="noopener noreferrer">via
+        Slack</a> para nos ajudar a construir juntos o melhor
+      conteúdo para o seu aprendizado!
+    </p>
+    <p class="font-italic">
+      #VQV
+    </p>
+  </div>
+</div>
+      </div>
+      <div class="footer-copyright text-center py-3">
+        © Trybe 2020
+      </div>
+    </footer>
+
+<meta charset="UTF-8" content="MyZDKUE7V1wXdggnAAY_JSBaKBwBai4vwEtH9WblC29xEUJaCcXlh8Ku" csrf-param="_csrf_token" method-param="_method" name="csrf-token">    <script type="text/javascript" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/app-39ff86c36ebcce375354dfbc7c0b7672.js"></script>
+
+  
+
+<iframe style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;" name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/box-469cf41adb11dc78be68c1ae7f9457a4.html"></iframe><div class="_hj-widget-container _hj-widget-theme-dark"><div class="_hj-10MNR__styles__globalStyles _hj-mMo1P__styles__resetStyles "><div class="_hj-2gFBC__styles__surveyContainer _hj-2SATB__styles__minimized   _hj-ygwVr__styles__positionRight  _hj-1pV3u__styles__openingAnimation" style="background: rgb(51, 51, 51) none repeat scroll 0% 0%;" role="dialog" aria-label="Survey"><button class="_hj-2qaGY__styles__openStateToggle" style="background: rgb(51, 51, 51) none repeat scroll 0% 0%;"><span class="_hj-1ZR3F__styles__openStateToggleIcon _hj-FxxIA__styles__surveyIcons" style="color: rgb(255, 255, 255);"></span></button><form><div class="_hj-3hGD3__styles__surveyBody"><div class="_hj-XnEwP__styles__surveyTitle " id="hj-survey-lbl-1">O quanto você recomendaria esses vídeos introdutórios de programação para um amigo ou amiga?</div><div aria-labelledby="hj-survey-lbl-1" class="_hj-3sBzS__styles__scaleAnswerWrapper _hj-29HmU__styles__answersContentWrapper " role="radiogroup"><div class="_hj-kY5Os__styles__scaleOptionsList  "><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">0</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">1</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">2</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">3</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">4</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">5</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">6</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">7</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">8</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">9</button><button class="_hj-gdJY7__styles__scaleOption " role="radio" type="button" style="background: rgb(77, 77, 77) none repeat scroll 0% 0% !important; border-bottom-color: rgb(51, 51, 51) !important; border-top-color: rgb(102, 102, 102) !important; color: rgb(255, 255, 255) !important;">10</button></div><div class="_hj-3tf90__styles__scaleLabels"><span class="_hj-2qaz5__styles__scaleLabel" style="color: rgb(204, 204, 204) !important;">Não recomendaria :/</span><span class="_hj-2qaz5__styles__scaleLabel" style="color: rgb(204, 204, 204) !important;">Recomendaria!!</span></div></div></div><div class="_hj-2biI-__styles__surveyFooter " style="border-top-color: rgb(26, 26, 26) !important;"><div class="_hj-3IN1-__styles__surveyBranding"><a rel="noopener noreferrer" target="_blank" href="https://www.hotjar.com/feedback-polls?utm_source=client&amp;utm_medium=poll&amp;utm_campaign=insights" class="_hj-QNHBM__styles__link" style="color: rgb(204, 204, 204) !important;"><img alt="Hotjar logo" class="_hj-31RM1__styles__logo" src="Trybe%20-%20Jest%20-%20Simulando%20comportamentos_files/hotjar-white.svg"></a></div><div class="_hj-1VIRR__styles__surveyActions"><button type="button" disabled="disabled" class="_hj-rnxC1__styles__surveyActionButton _hj-2EHD-__styles__surveysPrimaryButton _hj-21tno__styles__primaryButton" style="color: rgb(51, 51, 51) !important; background-color: rgb(77, 77, 77) !important;">Seguinte<span class="_hj-e_zIv__styles__surveyActionButtonIcon _hj-FxxIA__styles__surveyIcons "></span></button></div></div></form></div></div></div></body></html>

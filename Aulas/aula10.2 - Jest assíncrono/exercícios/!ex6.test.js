@@ -72,3 +72,4 @@ describe('Testando promise - findAnimalByName', () => {
 });
 
 // DOUBLE RETURN: getAnimal retorna o then do promisse / return no describe retorna o que?
+ 
