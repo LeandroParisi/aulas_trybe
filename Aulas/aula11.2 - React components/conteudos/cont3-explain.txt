@@ -1,0 +1,7 @@
+Analisando o código acima, temos:
+
+    O componente App é composto por dois componentes UserProfile. Em outras palavras, o componente App é pai dos dois componentes UserProfile. Além disso, <UserProfile user={joao} /> e <UserProfile user={amelia} /> são componentes irmãos, e eles dois são filhos do componente App.
+
+    O componente UserProfile, por sua vez, possui um componente Image. Ou seja, UserProfile tem Image como filho.
+
+    Os dados são repassados de componente pai para componente(s) filho(s). Olhando para o código acima, o componente App, que é pai dos dois componentes UserProfile, passa para cada um de seus filhos um objeto com as informações de um perfil. O mesmo pode ser dito olhando para UserProfile, que passa para seu componente filho Image a origem de uma imagem.
