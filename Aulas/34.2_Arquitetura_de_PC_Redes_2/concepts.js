@@ -5,5 +5,4 @@ const concepts = {
   microControladores: '??',
   arquiteturaRisc_Cisc: '??',
   webAssembly: '??', 
-
 }
